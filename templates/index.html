@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter task">
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task_index in range(tasks|length) %}
+            <li>{{ tasks[task_index] }} <a href="/delete/{{ task_index }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
