@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)
+app = Flask(__name__) 
+#Flask(__name__), is a new object that inherits from the class Flask — meaning it gets all the attributes and methods built into that class
+# Python has many double-underscore entities, and they always have this pattern: 
+    #two underscores, a word, and two underscores. These double-underscore entities are referred to with the slang dunder
 
 # Initialize an empty list to store tasks
 tasks = []
 
 # Route to display tasks
 @app.route('/')
+#A decorator begins with @ and is a unique feature of the Python language. It modifies the function that follows it
 def index():
-    return render_template('index.html', tasks=tasks)
+    return render_template('index.html', tasks=tasks) #render_template selects the template file to be used and passes to it any values or variables it needs
 
 # Route to add a new task
 @app.route('/add', methods=['POST'])
